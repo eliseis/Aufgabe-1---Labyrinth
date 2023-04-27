@@ -26,7 +26,7 @@ public class Walker {
 	}
 
 	public boolean alg (int a, int b){
-		if ((a == 10 - 1) && (b == 10 - 2)) {
+		if ((a == maze.length - 1) && (b == maze.length - 2)) {
 			return true;
 
 		} else if ((a == 1) && (b == 0)) {
