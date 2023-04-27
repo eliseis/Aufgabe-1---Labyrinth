@@ -10,7 +10,7 @@ public class Walker {
 
 	}
 
-	int dir = 999999996;
+	int dir = 0;
 
 	int rx = 0;
 	int ry = 0;
@@ -26,6 +26,9 @@ public class Walker {
 	}
 
 	public boolean alg (int a, int b){
+		if (dir < 0 ){
+			dir = dir + 4;
+		}
 		if ((a == maze.length - 1) && (b == maze[0].length - 2)) {
 			return true;
 
