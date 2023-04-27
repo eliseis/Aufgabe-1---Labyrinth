@@ -18,7 +18,13 @@ public class Walker {
 
 	public boolean walk() {
 		result.addLocation(1,0);
-		result.addLocation(1,1);
+		if (!maze[1][1]){
+			result.addLocation(1,1);
+		}
+		else{
+			return false;
+		}
+
 
 		return alg(1,1, 0);
 	}
@@ -75,7 +81,7 @@ public class Walker {
 	}
 
 	public static void main(String[] args) {
-		boolean[][] maze = Maze.generateStandardMaze(10, 4);
+		boolean[][] maze = Maze.generateStandardMaze(999, 999);
 		StudentResult result = new StudentResult();
 		Walker walker = new Walker(maze, result);
 		System.out.println(walker.walk());
