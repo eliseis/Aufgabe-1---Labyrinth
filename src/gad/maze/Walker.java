@@ -10,7 +10,7 @@ public class Walker {
 
 	}
 
-	int dir = 0;
+	int dir = 2500;
 
 	int rx = 0;
 	int ry = 0;
