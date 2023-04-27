@@ -75,10 +75,9 @@ public class Walker {
 	}
 
 	public static void main(String[] args) {
-		boolean[][] maze = Maze.generateStandardMaze(10, 10);
+		boolean[][] maze = Maze.generateStandardMaze(1000, 10000);
 		StudentResult result = new StudentResult();
 		Walker walker = new Walker(maze, result);
 		System.out.println(walker.walk());
-		Maze.draw(maze, result);
 	}
 }
