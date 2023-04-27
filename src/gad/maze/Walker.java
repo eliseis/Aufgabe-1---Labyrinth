@@ -21,13 +21,10 @@ public class Walker {
 
 	public boolean walk() {
 		result.addLocation(1,0);
-		if (!maze[1][1]){
-			result.addLocation(1,1);
-		}
-		else{
-			return false;
-		}
 		while ((x != maze.length - 1) && (y != maze[0].length - 2) || (x != 1) && (y != 0) ) {
+			if (dir < 0){
+				dir = dir + 4;
+			}
 			switch (dir % 4) {
 				case 0:
 					rx = x - 1;
@@ -130,7 +127,7 @@ public class Walker {
 	}*/
 
 	public static void main(String[] args) {
-		boolean[][] maze = Maze.generateStandardMaze(9999999, 100);
+		boolean[][] maze = Maze.generateStandardMaze(9999999, 10);
 		StudentResult result = new StudentResult();
 		Walker walker = new Walker(maze, result);
 		System.out.println(walker.walk());
