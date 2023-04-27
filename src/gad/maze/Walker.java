@@ -65,7 +65,7 @@ public class Walker {
 					dir++;
 				}
 			}
-			if (((y == maze.length - 2) && (x == maze.length - 1))){
+			if (((y == maze[0].length - 2) && (x == maze.length - 1))){
 				break;
 			}
 			if(( (x == 1) && (y == 0))){
@@ -133,10 +133,10 @@ public class Walker {
 	}*/
 
 	public static void main(String[] args) {
-		boolean[][] maze = Maze.generateStandardMaze(10, 10);
+		boolean[][] maze = Maze.generateStandardMaze(11, 10);
 		StudentResult result = new StudentResult();
 		Walker walker = new Walker(maze, result);
 		System.out.println(walker.walk());
-
+		Maze.draw(maze, result);
 	}
 }
