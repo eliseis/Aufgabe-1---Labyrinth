@@ -21,7 +21,7 @@ public class Walker {
 
 	public boolean walk() {
 		result.addLocation(1,0);
-		while ((x != maze.length - 1) && (y != maze[0].length - 2) || (x != 1) && (y != 0) ) {
+		while (true) {
 			if (dir < 0){
 				dir = dir + 4;
 			}
@@ -65,17 +65,23 @@ public class Walker {
 					dir++;
 				}
 			}
+			if (((y == maze.length - 2) && (x == maze.length - 1))){
+				break;
+			}
+			if(( (x == 1) && (y == 0))){
+				break;
+			}
 		}
-		if(x == 0){
+
+		if(x == 1){
 			return false;
-		}
-		else {
+		} else {
 			return true;
 		}
 		//return alg(1,1, 0);
 	}
 
-	/*public boolean alg (int a, int b, int dir){
+    /*public boolean alg (int a, int b, int dir){
 		if (dir < 0 ){
 			dir = dir + 4;
 		}
@@ -127,7 +133,7 @@ public class Walker {
 	}*/
 
 	public static void main(String[] args) {
-		boolean[][] maze = Maze.generateStandardMaze(9999999, 10);
+		boolean[][] maze = Maze.generateStandardMaze(10, 10);
 		StudentResult result = new StudentResult();
 		Walker walker = new Walker(maze, result);
 		System.out.println(walker.walk());
