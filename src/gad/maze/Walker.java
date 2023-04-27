@@ -20,12 +20,12 @@ public class Walker {
 
 	public boolean walk() {
 		result.addLocation(1,0);
+		result.addLocation(1,1);
 
 		return alg(1,1);
 	}
 
 	public boolean alg (int a, int b){
-		result.addLocation(a,b);
 		if ((a == 10 - 1) && (b == 10 - 2)) {
 			return true;
 
@@ -61,9 +61,11 @@ public class Walker {
 		}
 		if (!maze[rx][ry]){
 			dir--;
+			result.addLocation(rx,ry);
 			return alg(rx,ry);
 		} else{
 			if (!maze[fx][fy]){
+				result.addLocation(fx,fy);
 				return alg(fx,fy);
 			} else{
 				dir++;
