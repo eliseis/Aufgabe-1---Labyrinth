@@ -30,7 +30,7 @@ public class Walker {
 			return true;
 
 		} else if ((a == 1) && (b == 0)) {
-			return true;
+			return false;
 
 		}
 		switch (dir % 4){
