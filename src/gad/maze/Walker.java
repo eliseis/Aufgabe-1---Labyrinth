@@ -1,13 +1,75 @@
 package gad.maze;
 
 public class Walker {
+	private boolean[][] maze;
+	private Result result;
 
 	public Walker(boolean[][] maze, Result result) {
+		this.maze = maze;
+		this.result = result;
 
 	}
 
+	int x = 1;
+	int y = 0;
+
+	int rx = 0;
+	int ry = 0;
+	int fx = 0;
+	int fy = 0;
+
+
 	public boolean walk() {
-		return false;
+		result.addLocation(1,0);
+
+		return alg(1,1,0);
+	}
+
+	public boolean alg (int a, int b, int dir){
+		result.addLocation(a,b);
+		if ((a == 10 - 1) && (b == 10 - 2)) {
+			return true;
+
+		} else if ((a == 1) && (b == 0)) {
+			return true;
+
+		}
+		switch (dir % 4){
+			case 0:
+				rx = a - 1;
+				ry = b;
+				fx = a;
+				fy = b + 1;
+				break;
+			case 1:
+				rx = a;
+				ry = b + 1;
+				fx = a + 1;
+				fy = b;
+				break;
+			case 2:
+				rx = a + 1;
+				ry = b;
+				fx = a;
+				fy = b - 1;
+				break;
+			case 3:
+				rx = a;
+				ry = b - 1;
+				fx = a - 1;
+				fy = b;
+				break;
+		}
+		if (!maze[rx][ry]){
+			return alg(rx,ry, dir - 1);
+		} else{
+			if (!maze[fx][fy]){
+				return alg(fx,fy, dir);
+			} else{
+				return alg(a, b, dir + 1);
+			}
+		}
+
 	}
 
 	public static void main(String[] args) {
